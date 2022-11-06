@@ -14,8 +14,22 @@ public class MouseListener {
 	/**
 	 * 
 	 */
-	private MouseListener() {}
-	
-	
-	
+	private MouseListener() {
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static MouseListener getInstance() {
+		if (null == INSTANCE) {
+			synchronized (MouseListener.class) {
+				if (null == INSTANCE) {
+					INSTANCE = new MouseListener();
+				}
+			}
+		}
+		return INSTANCE;
+	}
+
 }
